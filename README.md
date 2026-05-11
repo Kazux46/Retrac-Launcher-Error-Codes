@@ -76,6 +76,6 @@ If a user is in a hurry, check these common fixes first:
 ---
 
 ## 📝 Staff Reminder
-Stay patient! Most players are frustrated because they just want to play. If an error isn't on this list, grab a screenshot and post it in your ticket.
+Stay patient! Most players are frustrated because they just want to play. If an error isn't on this list, grab a screenshot and post it in #support-chat or #staff-chat.
 
 **Official Support Link:** [discord.gg/6sNFtW4Hva](https://discord.gg/6sNFtW4Hva)
