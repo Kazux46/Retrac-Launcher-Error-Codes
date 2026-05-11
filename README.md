@@ -1,57 +1,81 @@
-# Retrac Launcher Support: Error Codes Reference
+# 📕 Retrac Support: Staff Error Guide
 
-This document provides a comprehensive list of error codes and troubleshooting steps for the Retrac Launcher support team.
+Welcome to the official error reference for the Retrac support team. This guide is designed to help you quickly identify issues and provide clear, actionable steps to get players back in the game.
 
-## 🚀 1xxx: Launch & Game Errors
-Errors related to starting the game or checking game files.
-
-| Code | Error Message | Meaning | Troubleshooting Steps |
-| :--- | :--- | :--- | :--- |
-| **1001** | `Invalid Fortnite installation path` | The folder selected doesn't contain a valid Fortnite installation. | 1. Ensure the path points to the main Fortnite folder.<br>2. Check if `FortniteGame` folder exists inside. |
-| **1002** | `Unsupported Fortnite version` | The version of Fortnite found is not compatible with Retrac. | 1. Ensure you are using the correct build version required by the server. |
-| **1003** | `Already launching` | User tried to launch while a launch process was already active. | 1. Wait a few seconds.<br>2. Restart the launcher if it's stuck. |
-| **1004** | `Failed to launch Retrac` | General failure during the injection or launch process. | 1. Run Launcher as Administrator.<br>2. Disable Antivirus/Windows Defender. |
-| **1005** | `EAC setup path does not exist` | Could not find the Easy Anti-Cheat setup executable. | 1. Verify game files.<br>2. Ensure EAC is installed in the game folder. |
-| **1006** | `Failed to create process: [ID]` | Windows refused to start the game process. | 1. Check if the game EXE is missing.<br>2. Check for permission issues (Run as Admin). |
+> [!TIP]
+> **The Golden Rule:** 90% of launcher issues are solved by running as **Administrator** and adding the game folder to **Windows Defender Exclusions**. Always ask the user to try these first!
 
 ---
 
-## 📥 2xxx: Download & Installation Errors
-Errors related to downloading builds or manifests.
-
-| Code | Error Message | Meaning | Troubleshooting Steps |
-| :--- | :--- | :--- | :--- |
-| **2001** | `Failed to download manifest` | Could not fetch the build list from the CDN. | 1. Check internet connection.<br>2. Server might be down (Check #announcements). |
-| **2002** | `Failed to download chunk [Hash]` | A specific part of the download failed to download. | 1. Check disk space.<br>2. Ensure the launcher has write permissions to the folder. |
-| **2003** | `Error rebuilding file` | Downloaded chunks couldn't be merged into the final file. | 1. Usually caused by Antivirus blocking the file creation.<br>2. Check if disk is full. |
-| **2004** | `Build not found in library` | User tried to launch a build they haven't added/downloaded. | 1. Refresh the library.<br>2. Re-download the build. |
-| **2005** | `Another download in progress` | User tried to start a download while one was already running. | 1. Wait for current download to finish or cancel it. |
+## ⚡ Quick Fix Dashboard
+If a user is in a hurry, check these common fixes first:
+*   **Game won't open?** Check for a missing `FortniteGame` folder (Error 1001).
+*   **Download stuck?** Usually a permissions issue or full disk (Error 2003).
+*   **Discord login failing?** Make sure their Discord app is actually open and logged in (Error 3002).
 
 ---
 
-## 🌐 3xxx: Connection & Auth Errors
-Errors related to the server connection and Discord login.
+## 🎮 Game & Launching
+*Errors that happen when the user clicks "Play".*
 
-| Code | Error Message | Meaning | Troubleshooting Steps |
-| :--- | :--- | :--- | :--- |
-| **3001** | `Disconnected from server` | The socket connection to Retrac servers was lost. | 1. Check Discord status.<br>2. Restart the launcher.<br>3. Check if your IP is banned or ratelimited. |
-| **3002** | `Failed to get exchange code` | Discord authentication failed. | 1. Ensure Discord is open and you are logged in.<br>2. Try logging out and back in within the launcher. |
-| **3003** | `Timeout` | The server took too long to respond. | 1. Check your ping.<br>2. Server might be under high load. |
+### **1001 - Path Invalid**
+*   **What's happening:** The launcher is looking for Fortnite but can't find it where the user said it was.
+*   **The Fix:** Ask them to re-select the folder. It should be the main folder that contains `FortniteGame`.
+
+### **1002 - Version Mismatch**
+*   **What's happening:** They are trying to use a Fortnite version that our servers don't support.
+*   **The Fix:** Verify which version they have. Direct them to the `#downloads` channel for the correct build.
+
+### **1005 - EAC Missing**
+*   **What's happening:** The Easy Anti-Cheat setup is missing or moved.
+*   **The Fix:** They might need to verify their files or manually run the EAC setup from the game's `EasyAntiCheat` folder.
+
+### **1006 - Process Blocked**
+*   **What's happening:** Windows (or an Antivirus) is refusing to let Retrac start the game.
+*   **The Fix:** Ensure they have disabled all "Real-time protection" and are running the launcher as Admin.
 
 ---
 
-## 🛡️ 4xxx: System & Permission Errors
-Errors related to Windows settings and permissions.
+## 📥 Downloads & Installation
+*Errors that happen during the update or install process.*
 
-| Code | Error Message | Meaning | Troubleshooting Steps |
-| :--- | :--- | :--- | :--- |
-| **4001** | `Failed to add to Windows Defender` | Launcher couldn't add itself/game to exclusions. | 1. **Run as Administrator** (Required for this action).<br>2. Manually add the folder to exclusions. |
-| **4002** | `Pattern not found` / `Version not found` | Could not identify the Windows or Game version. | 1. Ensure Windows is up to date.<br>2. Check if the game files are modified. |
+### **2001 - Manifest Failure**
+*   **What's happening:** The launcher can't "see" our download server.
+*   **The Fix:** Usually a temporary server blip. Have them wait 5 minutes. If it persists, check if our CDN is down.
+
+### **2002/2003 - Disk & Write Errors**
+*   **What's happening:** The launcher can't save the game files to their computer.
+*   **The Fix:** Check if their drive is full. If not, their Antivirus is likely "eating" the files as they download. Add an exclusion!
 
 ---
 
-## 💡 General Support Tips
-1. **Admin Mode**: 90% of issues are fixed by running the launcher as **Administrator**.
-2. **Exclusions**: Always add the Launcher and Game folders to **Windows Defender Exclusions**.
-3. **Discord**: Direct users to [Discord Support](https://discord.gg/6sNFtW4Hva) for complex issues.
-4. **Logs**: If issues persist, ask the user for the `launcher.log` (if available) or a screenshot of the error.
+## 🔑 Accounts & Connectivity
+*Errors related to Discord or the Retrac API.*
+
+### **3001 - Socket Disconnect**
+*   **What's happening:** The constant "handshake" with our server was broken.
+*   **The Fix:** Have them restart the launcher. If it keeps happening, their internet might be unstable or they might be using a VPN that we block.
+
+### **3002 - Discord Auth Error**
+*   **What's happening:** The launcher couldn't talk to their Discord app to log them in.
+*   **The Fix:** Tell them to open Discord first, *then* open the launcher. If that fails, have them log out and back in on Discord.
+
+---
+
+## 🛡️ System & Permissions
+*Windows-specific headaches.*
+
+### **4001 - Defender Exclusion Failed**
+*   **What's happening:** The "Add Exclusion" button failed to work.
+*   **The Fix:** This *requires* Admin rights. If they are already Admin, they'll have to add the folder to Windows Defender manually.
+
+### **4002 - Version Detection Error**
+*   **What's happening:** The launcher is confused about what version of Windows or Fortnite they are running.
+*   **The Fix:** Usually happens on "stripped" or custom Windows versions. Ask them to ensure they aren't using a modified `FortniteClient-Win64-Shipping.exe`.
+
+---
+
+## 📝 Staff Reminder
+Stay patient! Most players are frustrated because they just want to play. If an error isn't on this list, grab a screenshot of the **Console** (F12) and post it in `#staff-dev`.
+
+**Official Support Link:** [discord.gg/6sNFtW4Hva](https://discord.gg/6sNFtW4Hva)
